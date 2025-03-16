@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marionette Project</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* フルスクリーン動画 */
+        #video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Enter ボタン */
+        #enter-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+            color: white;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px 40px;
+            border: none;
+            cursor: pointer;
+            display: none;
+            transition: 0.3s;
+        }
+
+        #enter-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* メインコンテンツ（最初は非表示） */
+        #main-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- フルスクリーン動画 -->
+    <div id="video-container">
+        <video id="intro-video" autoplay=""muted="" playsinline="">
+            <source src="./5E342EB7-CBFD-450B-87DA-AD6D3A5BBB79 Copy.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <button id="enter-button">Enter</button>
+    </div>
+
+    <div class="header">
+        <h1>project1</h1>
+        <div class="menu">
+            <div class="menu-item">
+                <a href="#">Overview</a>
+                <div class="submenu">
+                    <a href="#">プロジェクト一覧</a>
+                    <a href="#">最新ニュース</a>
+                    <a href="#">アーカイブ</a>
+                    <a href="#" class="close-link">閉じる</a>
+                </div>
+            </div>
+            <div class="menu-item">
+                <a href="#">Services</a>
+                <div class="submenu">
+                    <a href="#">開発サービス</a>
+                    <a href="#">コンサルティング</a>
+                    <a href="#">メンテナンス</a>
+                    <a href="#" class="close-link">閉じる</a>
+                </div>
+            </div>
+            <div class="menu-item">
+                <a href="#">Contact</a>
+                <div class="submenu">
+                    <a href="#">お問い合わせ</a>
+                    <a href="#">連絡先</a>
+                    <a href="#">営業時間</a>
+                    <a href="#" class="close-link">閉じる</a>
+                </div>
+            </div>
+            <div class="menu-item">
+                <a href="#">About Us</a>
+                <div class="submenu">
+                    <a href="#">会社概要</a>
+                    <a href="#">事業内容</a>
+                    <a href="#">採用情報</a>
+                    <a href="#" class="close-link">閉じる</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sign-in-text" id="sign-in-text">Sign In</div>
+
+    <div class="login-container" id="login-container">
+        <h2>Welcome</h2>
+        <div class="input-box">
+            <input type="text" id="username" placeholder="Username">
+        </div>
+        <div class="input-box">
+            <input type="password" id="password" placeholder="Password">
+        </div>
+        <button id="login-btn" disabled>Log In</button>
+        <button class="back-button" id="back-btn">Back</button>
+    </div>
+
+    <div id="success-message" class="success-message">success!</div>
+
+    <script src="script.js"></script>
+</body>
+</html>

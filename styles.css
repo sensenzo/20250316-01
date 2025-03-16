@@ -1,0 +1,254 @@
+/* styles.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: black;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    flex-direction: column;
+}
+
+.header {
+    width: 100%;
+    background-color: black;
+    color: lime;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.header h1 {
+    font-size: 32px;
+    text-shadow: 0 0 10px lime;
+}
+
+.menu {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.menu a {
+    color: lime;
+    text-decoration: none;
+    font-size: 18px;
+    text-shadow: 0 0 5px lime;
+    cursor: pointer;
+}
+
+.menu a:hover {
+    color: rgb(255, 0, 0);
+    text-shadow: 0 0 10px lime;
+}
+
+.menu-item {
+    position: relative;
+    display: inline-block;
+}
+
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: -65px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgb(0, 0, 0);
+    width: 200px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.submenu.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.submenu a {
+    display: block;
+    padding: 8px;
+    color: rgb(229, 255, 0);
+    text-decoration: none;
+    text-shadow: 0 0 5px rgb(229, 255, 0);
+    margin: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.submenu a:hover {
+    color: rgb(255, 0, 0);
+    text-shadow: 0 0 10px red;
+}
+
+.close-link {
+    display: block;
+    padding: 8px;
+    color: red;
+    text-decoration: none;
+    text-shadow: 0 0 5px red;
+    margin: 5px 0;
+    border: 2px solid red;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.close-link:hover {
+    color: rgb(255, 0, 0);
+    text-shadow: 0 0 10px red;
+    background: rgba(255, 0, 0, 0.2);
+}
+
+.login-container {
+    position: relative;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 30px 10px lime;
+    width: 300px;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-top: 120px;
+    z-index: 0;
+}
+
+.login-container.visible {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 1;
+}
+
+h2 {
+    color: lime;
+    margin-bottom: 20px;
+    text-shadow: 0 0 8px lime;
+}
+
+.input-box {
+    width: 100%;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    background: black;
+    border: 2px solid lime;
+    color: lime;
+    outline: none;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 0 8px lime;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    box-shadow: 0 0 15px lime;
+    border-color: rgb(255, 0, 0);
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: lime;
+    border: none;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 0 8px lime;
+    transition: all 0.3s ease;
+}
+
+button:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+    box-shadow: 0 0 12px lime;
+    transform: scale(1.05);
+}
+
+.back-button {
+    margin-top: 10px;
+    padding: 10px;
+    background: red;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 0 6px red;
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    box-shadow: 0 0 12px red;
+}
+
+.sign-in-text {
+    font-size: 40px;
+    color: lime;
+    text-shadow: 0 0 10px lime;
+    cursor: pointer;
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-top: 120px;
+    z-index: 1;
+}
+
+.sign-in-text.fade-out {
+    opacity: 0;
+    transform: translateY(-20px);
+    z-index: 0;
+}
+
+.success-message {
+    display: block;
+    visibility: hidden;
+    font-size: 24px;
+    color: lime;
+    text-shadow: 0 0 10px lime;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0) rotate(-45deg);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px lime;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+}
+
+.success-message.visible {
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    opacity: 1;
+    animation: glow 1.2s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 15px lime; }
+    50% { box-shadow: 0 0 30px lime, 0 0 45px rgb(255, 0, 0); }
+    100% { box-shadow: 0 0 15px lime; }
+}
